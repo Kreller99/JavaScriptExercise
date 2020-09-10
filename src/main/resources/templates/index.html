@@ -5,17 +5,29 @@
     <title>HTML og JS demo</title>
 </head>
 <body>
-    <h1 id="header1">Javascript Demo</h1>
+    <h1 id="header1">This is your first JS exercise</h1>
     <input id="input" type=text">
-    <p id="paragraf">Noget tekst!</p>
-    <div id="div">Noget mere tekst!</div>
-    <img id="billede" src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" alt="exploits - sql injection">
-    <button id="minKnap" onclick="btnClick()">Don't Press This Button!</button>
+    <p id="paragraf"></p>
+    <button id="minKnap" onclick="btnClick()">Click me</button>
     <script>
         function btnClick(){
-            document.getElementById("billede").hidden = true;
-            document.getElementById("paragraf").innerHTML = "<b>tid for øvelse</b>";
+                document.getElementById("paragraf").innerHTML = "";
+                document.getElementById("input").value = "Change me";
+                document.getElementById("minKnap").innerHTML = "Change text above and click me again!";
+                document.getElementById("minKnap").setAttribute("onclick", "btnClick2()");
         }
+        function btnClick2(){
+            var inp = document.getElementById("input");
+
+                document.getElementById("paragraf").innerHTML = "Thank you for changing input to: " + "<strong>" +
+                    inp.value + "</strong>";
+                document.getElementById("minKnap").innerHTML = "Click me again!";
+                document.getElementById("minKnap").setAttribute("onclick", "btnClick()");
+        }
+
+
+
     </script>
+
 </body>
 </html>
